@@ -1,0 +1,41 @@
+<main class="main-content  mt-0">
+  <section>
+    <div class="page-header min-vh-75">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+            <div class="card card-plain mt-8">
+              <div class="card-header pb-0 text-left bg-transparent">
+                <h3 class="font-weight-bolder text-info text-gradient">Forgot your password?</h3>
+                <p class="mb-0">Please enter your email to rest your password!</p>
+              </div>
+              <div class="card-body">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                  <label><%= f.label :email %></label>
+                  <div class="mb-3">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
+                  </div>
+                  <div class="text-center">
+                    <%= f.submit "Send me reset password instructions", class:"btn bg-gradient-info w-100 mt-4 mb-0" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-4 text-sm mx-auto">
+                  Don't have an account?
+                  <%= render "devise/shared/links", class:"text-info text-gradient font-weight-bold" %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+              <%= image_tag "f12.jpg", class:"oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

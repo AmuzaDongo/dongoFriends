@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="h-100 p-5 bg-light border rounded-3">
+    <h5 class="display-5"><%= @friend.first_name %><%= @friend.last_name %></h5>
+    <p class="lead"><%= @friend.email %></p>
+    <p class="lead"><%= @friend.phone %></p>
+    <p class="lead"><%= @friend.twitter %></p>
+    <br/>
+    <%= link_to 'Edit', edit_friend_path(@friend), class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %>
+    <%= link_to 'Back', friends_path, class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %>
+  </div>
+
+</div>

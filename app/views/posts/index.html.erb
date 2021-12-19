@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="posts">
+    <div class="row">
+      <div class="col-12 post-header">
+        <h3>Latest Posts</h3>
+        <% if user_signed_in? %>
+          <%= link_to 'New Post', new_post_path, class:"btn" %>
+        <%end%>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="card mb-3" style="max-width: 580px;">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <%= link_to image_tag(post.thumbnail, class:"img-fluid") + '', post %>
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= link_to post.title + '', post %>
+                  </h5>
+                  <p class="card-text"><%= post.body %></p>
+                  <div class="post_user">
+                     <%= image_tag "default_profile.jpg", class:"img-fluid" %>
+                    <span><%= post.user.email %></span>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated <%= post.updated_at.strftime("%A %B %Y") %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="post-header">
+        <h3>New Post</h3>
+        <%= link_to 'Back', posts_path, class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %>
+    </div>
+
+    <%= render 'form', post: @post %>
+</div>

@@ -1,0 +1,45 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group mb-3">
+    <%= form.text_field :user_id, id: :user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+
+
+  <div class="field form-group mb-3">
+    <%= form.label :title %>
+    <%= form.text_field :title , class:"form-control" %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :thumbnail %>
+    <%= form.file_field :thumbnail , class:"form-control" %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :banner %>
+    <%= form.file_field :banner , class:"form-control" %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :body %>
+    <%= form.rich_text_area :body , class:"form-control" %>
+  </div>
+  
+  <br/>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %>
+  </div><br/>
+<% end %>
+

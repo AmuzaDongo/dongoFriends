@@ -1,0 +1,60 @@
+<main class="main-content  mt-0">
+  <section>
+    <div class="page-header min-vh-75">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+            <div class="card card-plain mt-8">
+              <div class="card-header pb-0 text-left bg-transparent">
+                <h3 class="font-weight-bolder text-info text-gradient">Update Your Account!!</h3>
+              </div>
+              <div class="card-body">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                  
+                  <div class="mb-3 avatar">
+                    <%= image_tag(resource.avatar_thumbnail, class:"profile")%>
+                  </div>
+                  <div class="mb-3">
+                    <%= f.file_field :avatar, class:"form-control" %>
+                  </div>
+                  <label><%= f.label :email %></label>
+                  <div class="mb-3">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+                  </div>
+                  <label><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></label>
+                  <div class="mb-3">
+                    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+                  </div>
+                  <label><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></label>
+                  <div class="mb-3">
+                    <%= f.password_field :password, autocomplete: "new-password",  class:"form-control" %>
+                    <% if @minimum_password_length %>
+                      <em><%= @minimum_password_length %> characters minimum</em>
+                    <% end %>
+                  </div>
+                  <label><%= f.label :password_confirmation %></label>
+                  <div class="mb-3">
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+                  </div>
+                  <div class="text-center">
+                    <%= f.submit "Update", class:"btn bg-gradient-info w-100 mt-4 mb-0" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-4 text-sm mx-auto">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %></p>
+              </div>
+              <%= link_to "Back", :back %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+              <%= image_tag "f1.jpg", class:"oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

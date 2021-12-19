@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="post_banner">
+        <%=image_tag(@post.banner, class:"img-fluid")%>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron">
+        <h2> <%= link_to @post.title, posts_path, class:"title" %> </h2>
+        <p class="lead">
+          <%= @post.updated_at.strftime("%A %B %e %Y") %> by <%= @post.user.email %> | <%= pluralize(@post.views, "View") %>
+        </p>
+        <div class="post_blog">
+          <p class="lead">
+            <%= @post.body %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if @post.user == current_user %>
+  <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %> 
+  <%= link_to 'Destroy', @post, method: :delete,class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark", data: { confirm: 'Are you sure?' } %>
+  <%end%>
+</div>

@@ -1,0 +1,96 @@
+<div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "f15.jpg", class:"img-fluid" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "f16.jpg", class:"img-fluid" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "f13.jpg", class:"img-fluid" %>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="services">
+    <div class="row mt-4 pt-4">
+      <div class="col-md-4 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="message_icons"><%= image_tag "message.png", class:"img-fluid" %></span></div>
+          <div class="card-body">
+            <h5 class="card-title">Messaging</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="support_icons"><%= image_tag "support.png", class:"img-fluid" %></span></div>
+          <div class="card-body">
+            <h5 class="card-title">Support</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="management_icons"><%= image_tag "management.png", class:"img-fluid" %></span></div>
+          <div class="card-body">
+            <h5 class="card-title">Management</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="posts">
+    <div class="row">
+      <div class="col-12">
+        <h3>Latest Posts</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="card mb-3" style="max-width: 580px;">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <%= link_to image_tag(post.thumbnail, class:"img-fluid") + '', post %>
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title"><%= link_to post.title + '', post %></h5>
+                  <p class="card-text"><%= post.body %></p>
+                  <div class="post_user">
+                    <%= image_tag "default_profile.jpg", class:"img-fluid" %>
+                    <span><%= post.user.email %></span>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated <%= post.updated_at.strftime("%A %B %Y") %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="subscribers">
+    <h3>Subscrib Now</h3>
+    <p>For the latest posts and news subscrib today</p>
+  </div>
+</div>
