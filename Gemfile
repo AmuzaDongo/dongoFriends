@@ -22,6 +22,8 @@ gem 'devise', '~> 4.8'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'active_storage_validations', '~> 0.9.6'
 gem 'mini_magick', '~> 4.11'
+gem 'will_paginate', '~> 3.3', '>= 3.3.1'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

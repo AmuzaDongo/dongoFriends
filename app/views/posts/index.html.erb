@@ -20,20 +20,27 @@
               <div class="col-md-6">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <%= link_to post.title + '', post %>
+                    <%= link_to post.title.truncate_words(5) + '', post %>
                   </h5>
-                  <p class="card-text"><%= post.body %></p>
+                  <p class="card-text"><%= post.body.to_plain_text.truncate_words(10) %></p>
                   <div class="post_user">
                      <%= image_tag "default_profile.jpg", class:"img-fluid" %>
                     <span><%= post.user.email %></span>
                   </div>
-                  <p class="card-text"><small class="text-muted">Last updated <%= post.updated_at.strftime("%A %B %Y") %></small></p>
+                  <small class="text-muted"><%= post.updated_at.strftime("%A %B %Y") %> | <%= pluralize(post.views, "View") %></small>
                 </div>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="digg_pagination">
+          <%= will_paginate @posts, :container => false %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
