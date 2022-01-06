@@ -6,6 +6,7 @@ class User < ApplicationRecord
           has_one_attached :avatar
           has_many :friends
           has_many :posts
+          has_many :comments 
           after_commit :add_default_avatar, on: %i[create update]
 
   def avatar_thumbnail

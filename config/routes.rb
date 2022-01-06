@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :subscribers
-  resources :subscribs
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create]
+  end
   devise_for :users
   resources :friends
   root 'home#index'

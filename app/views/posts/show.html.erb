@@ -26,4 +26,15 @@
   <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" %> 
   <%= link_to 'Destroy', @post, method: :delete,class:"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark", data: { confirm: 'Are you sure?' } %>
   <%end%>
+  <div class="row mt-4">
+    <div class="col">
+      <strong>Comments:</strong>
+      <p>
+        <%= render @post.comments %>
+      </p>
+      <p>
+        <%= render partial: 'comments/form', locals: { post: @post } %>
+      </p>
+    </div>
+  </div>
 </div>

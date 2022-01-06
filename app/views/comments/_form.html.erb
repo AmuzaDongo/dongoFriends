@@ -1,0 +1,13 @@
+
+
+<form action="<%= post_comments_path(@post) %>" method="post">
+    <div class="form-group">
+        <input type="hidden" name="authenticity_token">
+    </div>
+    <div class="form-group">
+        <textarea type="text" name="comment[content]" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Send</button>
+    </div>
+</form>
